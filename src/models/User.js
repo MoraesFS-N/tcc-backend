@@ -23,6 +23,12 @@ const userSchema = new moongose.Schema({
         required: true
     },
 
+    is_admin: {
+        type: Boolean,
+        required: true,
+        default: false
+    },
+
     createdAt: {
         type: Date,
         default: Date.now

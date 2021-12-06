@@ -6,6 +6,7 @@ module.exports = {
     async index(request, response) {
 
         try {
+            
             const ong = await Ong.find();
 
             return response.status(200).json({ong});
@@ -13,6 +14,23 @@ module.exports = {
         } catch (err) {
             console.log(err);
             response.status(500).json({message: err.message});
+        }
+    },
+
+    async findOngById(request, response){
+
+        try {
+            
+            const ong = await Ong.findOne();
+
+            console.log(ong);
+
+            return response.status(200).json({ong});
+
+        } catch (error) {
+            
+            console.log(error);
+            return response.status(200).json();
         }
     },
 

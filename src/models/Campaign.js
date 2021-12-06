@@ -10,7 +10,7 @@ const campaignSchema = new moongose.Schema({
 
     key_pix: {
         type: String,
-        required: true
+        required: false
     },
 
     goal_campaign: {
@@ -34,13 +34,18 @@ const campaignSchema = new moongose.Schema({
         required: true
     },
 
+    closed_campaign: {
+        type: Boolean,
+        default: false
+    },
+
     created_at: {
         type: Date,
         default: Date.now
     },
 
     donates: [{
-        type: moongose.ObjectId,
+        type: moongose.Schema.Types.ObjectId,
         ref: 'Donate',
         default: []
     }]

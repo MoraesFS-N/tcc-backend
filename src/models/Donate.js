@@ -2,10 +2,10 @@ const moongose = require('mongoose');
 
 
 const donateSchema = new moongose.Schema({
-    
-    id: {
+
+    donater: {
         type: String,
-        required: true
+        require: true
     },
 
     is_money: {
@@ -18,9 +18,14 @@ const donateSchema = new moongose.Schema({
         required: true
     },
 
+    campaign_id: {
+        type: moongose.Schema.Types.ObjectId,
+        ref: 'Campaign',
+    },
+
     donate_amount: {
         type: Number,
-        required: true
+        required: false
     },
 
     created_at: {
