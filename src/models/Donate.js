@@ -24,7 +24,7 @@ const donateSchema = new moongose.Schema({
     },
 
     donate_amount: {
-        type: Number,
+        type: String,
         required: false
     },
 

@@ -18,6 +18,8 @@ module.exports = {
 
     async store(request, response){
 
+        console.log(request.body)
+
         const {
             donater,
             is_money,

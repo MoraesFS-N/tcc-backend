@@ -6,7 +6,6 @@ const routes = require('../routes/routes');
 const app =  express();
 const port = 3333;
 
-
 const connectToDatabase =  require('./connection');
 connectToDatabase();
 

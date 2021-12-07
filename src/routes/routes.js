@@ -11,8 +11,8 @@ const userController = require('../controllers/UserController');
 const donateController = require('../controllers/DonateController');
 const User = require('../models/User');
 
-// const authMiddleware = require('../middlewares/auth');
-// router.use(authMiddleware);
+const authMiddleware = require('../middlewares/auth');
+router.use(authMiddleware);
 
 function generateTokenOng(params = {}) {
     return jwt.sign(params, authConfig.secret, {
@@ -31,7 +31,7 @@ router.get("/campaigns/ong", campaignController.findByOngId);
 router.get("/campaign/detail", campaignController.findCampaignById);
 router.get("/campaign/detail/only", campaignController.findOnlyCampaignById);
 router.post("/campaigns/create", campaignController.store);
-router.post('/campaigns/closed/:id', campaignController.closedCampaign)
+router.post("/campaigns/closed/:id", campaignController.closedCampaign)
 
 /* USER routes */ 
 router.post("/user", userController.store);
@@ -87,7 +87,6 @@ router.post('/authenticate/auth/user', async (req, res) => {
         return res.status(200).send({user});
 
 });
-
 router.post('/autheticate/user/admin', async (req, res) => {
     
     console.log(req.body);
